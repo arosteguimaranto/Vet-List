@@ -1,11 +1,15 @@
+import { Formulario } from "./components/Formulario"
 import Header from "./components/header"
+import { ListadoPacientes } from "./components/ListadoPacientes"
 
 
 function App() {
 
-  return ( 
+  return (
     <>
-   <Header />
+      <Header />
+      <Formulario />
+      <ListadoPacientes/>
     </>
   )
 }
