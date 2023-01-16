@@ -1,5 +1,5 @@
 import { Formulario } from "./components/Formulario"
-import Header from "./components/header"
+import {Header} from "./components/header"
 import { ListadoPacientes } from "./components/ListadoPacientes"
 
 
