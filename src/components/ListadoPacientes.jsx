@@ -1,7 +1,9 @@
 
 import { Paciente } from "./Paciente";
 
-export const ListadoPacientes = () => {
+export const ListadoPacientes = ({pacientes}) => {
+
+  
   return (
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
       <h2 className="font-black text-3xl text-center"> Listado Pacientes </h2>
@@ -9,9 +11,22 @@ export const ListadoPacientes = () => {
         Administra tus {""}
         <span className="text-indigo-600 font-bold"> Pacientes y Citas</span>
       </p>
+    
+      {pacientes.map( (paciente) => (
+          <Paciente
+          paciente={paciente}
+          /> 
+          
+        )
 
-    <Paciente/>
-    <Paciente/>
+
+    )}
+
+
+
+
+   
+
       
     </div>
   );
