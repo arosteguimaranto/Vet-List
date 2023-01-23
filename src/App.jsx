@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Formulario } from "./components/Formulario"
 import { Header } from "./components/header"
 import { ListadoPacientes } from "./components/ListadoPacientes"
@@ -5,18 +6,26 @@ import { ListadoPacientes } from "./components/ListadoPacientes"
 
 function App() {
 
-  return (
-    <div className=" container mx-auto , mt-20">
-      <Header />
-      <div className=" mt-12 md:flex">
+  const [pacientes, setPacientes] = useState([]);
+  const toma1Valor = (valor) => {
+    console.log(valor)
+  }
 
-        <Formulario />
-        <ListadoPacientes />
+return (
+  <div className=" container mx-auto , mt-20">
+    <Header
+    toma1Valor={toma1Valor}
 
-      </div>
+    />
+    <div className=" mt-12 md:flex">
+
+      <Formulario />
+      <ListadoPacientes />
 
     </div>
-  )
+
+  </div>
+)
 }
 
 export default App
