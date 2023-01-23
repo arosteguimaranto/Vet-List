@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Formulario = () => {
+export const Formulario = ({pacientes, setPacientes }) => {
   const [nombre, setNombre] = useState("");
   const [propietario, setPropietario] = useState("");
   const [email, setEmail] = useState("");
@@ -19,9 +19,32 @@ export const Formulario = () => {
 
       setError(true);
       return;
+
     }
 
-    setError(false);
+    setError(false)
+  
+    //Objeto Paciente
+  const objetoPaciente = {
+    nombre,
+    propietario,
+    email,
+    fecha,
+    sintomas
+  }
+
+  //console.log(objetoPaciente);
+  setPacientes([...pacientes, objetoPaciente]);
+
+  
+
+  //Reiniciar el Form
+  setNombre('')
+  setPropietario('')
+  setEmail('')
+  setFecha('')
+  setSintomas('')
+
 
   }
 

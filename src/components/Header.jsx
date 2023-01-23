@@ -1,9 +1,5 @@
 
-export const Header = ({toma1Valor}) => {
-
-    const variableHeader = true;
-
-    toma1Valor(variableHeader)
+export const Header = () => {
 
     return (
         <>

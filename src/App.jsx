@@ -7,25 +7,26 @@ import { ListadoPacientes } from "./components/ListadoPacientes"
 function App() {
 
   const [pacientes, setPacientes] = useState([]);
-  const toma1Valor = (valor) => {
-    console.log(valor)
-  }
 
-return (
-  <div className=" container mx-auto , mt-20">
-    <Header
-    toma1Valor={toma1Valor}
+  return (
+    <div className=" container mx-auto , mt-20">
+      <Header
 
-    />
-    <div className=" mt-12 md:flex">
 
-      <Formulario />
-      <ListadoPacientes />
+      />
+      <div className=" mt-12 md:flex">
+
+        <Formulario
+          pacientes={pacientes}
+          setPacientes={setPacientes}
+          
+        />
+        <ListadoPacientes />
+
+      </div>
 
     </div>
-
-  </div>
-)
+  )
 }
 
 export default App
