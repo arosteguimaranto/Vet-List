@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Error } from "./Error";
 
 export const Formulario = ({pacientes, setPacientes }) => {
   const [nombre, setNombre] = useState("");
@@ -36,7 +37,7 @@ export const Formulario = ({pacientes, setPacientes }) => {
   //console.log(objetoPaciente);
   setPacientes([...pacientes, objetoPaciente]);
 
-  
+
 
   //Reiniciar el Form
   setNombre('')
@@ -62,14 +63,8 @@ export const Formulario = ({pacientes, setPacientes }) => {
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
       >
 
-        {error &&
-          <div className="bg-red-800
-           text-white text-center p-3
-          uppercase font-bold mb-3 rounded-md">
-            <p> Todos los Campos son Obligatorios </p>
-          </div>
-        }
-
+        {error && <Error mensaje='Todos los campos son obligatorios'
+          /> }
         <div className="mb-5">
           <label
             htmlFor="mascota"
