@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { Error } from "./Error";
 
-export const Formulario = ({pacientes, setPacientes }) => {
+
+export const Formulario = ({ pacientes, setPacientes, paciente }) => {
   const [nombre, setNombre] = useState("");
   const [propietario, setPropietario] = useState("");
   const [email, setEmail] = useState("");
@@ -10,7 +11,16 @@ export const Formulario = ({pacientes, setPacientes }) => {
 
   const [error, setError] = useState(false);
 
-  const generarId = () =>{
+  useEffect(() => {
+  
+    
+  }, [paciente])
+  
+
+  
+
+
+  const generarId = () => {
     const random = Math.random().toString(36).substring(2);
     const fecha = Date.now.toString(36);
 
@@ -31,28 +41,28 @@ export const Formulario = ({pacientes, setPacientes }) => {
     }
 
     setError(false)
-  
+
     //Objeto Paciente
-  const objetoPaciente = {
-    nombre,
-    propietario,
-    email,
-    fecha,
-    sintomas,
-    id: generarId()
-  }
+    const objetoPaciente = {
+      nombre,
+      propietario,
+      email,
+      fecha,
+      sintomas,
+      id: generarId()
+    }
 
-  //console.log(objetoPaciente);
-  setPacientes([...pacientes, objetoPaciente]);
+    //console.log(objetoPaciente);
+    setPacientes([...pacientes, objetoPaciente]);
 
 
 
-  //Reiniciar el Form
-  setNombre('')
-  setPropietario('')
-  setEmail('')
-  setFecha('')
-  setSintomas('')
+    //Reiniciar el Form
+    setNombre('')
+    setPropietario('')
+    setEmail('')
+    setFecha('')
+    setSintomas('')
 
 
   }
@@ -72,7 +82,7 @@ export const Formulario = ({pacientes, setPacientes }) => {
       >
 
         {error && <Error> <p>Todos los campos son obligatorios</p> </Error>
-           }
+        }
         <div className="mb-5">
           <label
             htmlFor="mascota"
