@@ -9,18 +9,22 @@ function App() {
   const [pacientes, setPacientes] = useState([]);
   const [paciente, setPaciente] = useState({})
 
+
   useEffect(() => {
-   localStorage.setItem('pacientes', JSON.stringify(pacientes))
-  }, [pacientes])
-  
+    const pacientesLocal = JSON.parse(localStorage.getItem('pacientes'));
+    pacientesLocal?.length > 0 && setPacientes(pacientesLocal);
+  }, []);
+ 
+  useEffect(() => {
+    localStorage.setItem('pacientes', JSON.stringify(pacientes));
+  }, [pacientes]);
 
 
-
-  const eliminarPaciente = id  =>{
+  const eliminarPaciente = id => {
     const pacientesActualizados = pacientes.filter(paciente => paciente.id !== id);
     setPacientes(pacientesActualizados)
   }
- 
+
 
 
   return (
@@ -36,13 +40,13 @@ function App() {
           setPacientes={setPacientes}
           paciente={paciente}
           setPaciente={setPaciente}
-          
+
         />
-        <ListadoPacientes 
-        pacientes={pacientes}
-        setPaciente={setPaciente}
-        eliminarPaciente={eliminarPaciente}
-        
+        <ListadoPacientes
+          pacientes={pacientes}
+          setPaciente={setPaciente}
+          eliminarPaciente={eliminarPaciente}
+
         />
 
       </div>
